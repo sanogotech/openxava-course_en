@@ -8,6 +8,19 @@ Source code for OpenXava course in English
 - Annotation full docs: https://www.openxava.org/OpenXavaDoc/docs/model_en.html#Model-Properties-Stereotype
 - View : https://www.openxava.org/OpenXavaDoc/docs/view_en.html
 
+## Business Component
+
+The basic unit to create an OpenXava application is the business component. A business component is defined using a Java class called Entity. This class is a regular EJB3 entity, or in other words, a POJO class with annotations that follows the Java Persistence API (JPA) standard.
+JPA is the Java standard for persistence, that is, for objects that store its state in a database. If you know how to develop using POJOs with JPA, you already know how to develop OpenXava applications.
+Using a simple Java class you can define a Business Component with:
+
+- Model: Data structure, validations, calculations, etc.
+- View: How the model can be shown to the user.
+- Tabular data: How the data of the component is displayed in list mode (in tabular format).
+- Object/relational mapping: How to store and retrieve the object state from database.
+  
+This chapter explains how to define the model part, that is, all about structure, validations, calculations, etc.
+
 ##  Model
 
 ![ Sample Model](https://github.com/sanogotech/openxava-course_en/blob/lesson-26/images/SampleDomainModel.png)
