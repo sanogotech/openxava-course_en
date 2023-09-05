@@ -14,10 +14,11 @@
 	</properties>
 
 	<dependencies>
+	   	<!-- <version>7.0</version>   -->
 		<dependency>
 			<groupId>org.openxava</groupId>
 			<artifactId>openxava</artifactId>
-			<version>7.0</version>
+			<version>7.1.5</version>
 		</dependency>
 		
 		<!-- 
