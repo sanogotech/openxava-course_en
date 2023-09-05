@@ -28,6 +28,42 @@ Thanks to metadata you can do most of the work in a declarative way and the dirt
 Moreover, the code you write is plain Java, like properties (year and seller, 1) for defining the data structure, and methods (applyDiscounts(), 2) for programmatic business logic.
 All you need to write about invoice is Invoice.java. It is a Business Component. The magic of OpenXava is that it transforms this Business Component into a ready to use application.
 
+```java
+/**
+ * A Java class for defining a business component.
+ */
+ 
+@Entity  // Database
+@Table(name="GSTFCT")  // Database
+@View(members=  // User interface
+    "year, number, date, paid;" +
+    "customer, seller;" +
+    "details;" +
+    "amounts [ amountsSum, vatPercentage, vat ]"
+)
+public class Invoice {
+ 
+    @Id  // Database
+    @Column(length=4)  // Database
+    @Max(9999)  // Validation
+    @Required  // Validation
+    @DefaultValueCalculator(  // Declarative business logic
+        CurrentYearCalculator.class
+    )
+    private int year;  // Data structure (1)
+ 
+    @ManyToOne(fetch=FetchType.LAZY)  // Database
+    @DescriptionsList     // User interface
+    private Seller seller;  // Data structure
+ 
+    public void applyDiscounts() {  // Programmatic business logic (2)
+        ...
+    }
+ 
+    ...
+}
+
+```
 ## Business Component
 
 The basic unit to create an OpenXava application is the business component. A business component is defined using a Java class called Entity. This class is a regular EJB3 entity, or in other words, a POJO class with annotations that follows the Java Persistence API (JPA) standard.
@@ -51,7 +87,7 @@ Properties
 A property represents the state of an object that can be read and in some cases updated. The object does not have the obligation to store physically the property data, it only has to return it when required.
 The syntax to define a property is:
 
-```
+```java
 @Stereotype                                                                //  1
 @Column(length=) @Column(precision=) @Max @Length(max=) @Digits(integer=)  //  2
 @Digits(integer=) @Digits(fraction=)                                       //  3
