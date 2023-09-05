@@ -8,6 +8,26 @@ Source code for OpenXava course in English
 - Annotation full docs: https://www.openxava.org/OpenXavaDoc/docs/model_en.html#Model-Properties-Stereotype
 - View : https://www.openxava.org/OpenXavaDoc/docs/view_en.html
 
+
+##  Architecture
+
+* https://www.openxava.org/OpenXavaDoc/docs/philosophy_en.html
+
+   the Invoice class. This class contains code dealing with persistence, data structures, business logic, user interface, validation, etc.
+This is accomplished using the Java metadata facility, so-called annotations. These are the annotations used in this example:
+
+| Facet          | Metadata                                | Implemented by   |
+| ---------------| ---------------------------------------| ----------------- |
+| Database       | @Entity, @Table, @Id, @Column, @ManyToOne | JPA             |
+| User interface | @View, @DescriptionsList                | OpenXava         |
+| Validation     | @Max, @Required                         | Bean Validation, OpenXava |
+| Business logic | @DefaultValueCalculator                | OpenXava         |
+
+
+Thanks to metadata you can do most of the work in a declarative way and the dirty work is done for you by JPA (the Java standard for persistence), Bean Validation (the Java standard for validation) and OpenXava.
+Moreover, the code you write is plain Java, like properties (year and seller, 1) for defining the data structure, and methods (applyDiscounts(), 2) for programmatic business logic.
+All you need to write about invoice is Invoice.java. It is a Business Component. The magic of OpenXava is that it transforms this Business Component into a ready to use application.
+
 ## Business Component
 
 The basic unit to create an OpenXava application is the business component. A business component is defined using a Java class called Entity. This class is a regular EJB3 entity, or in other words, a POJO class with annotations that follows the Java Persistence API (JPA) standard.
