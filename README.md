@@ -6,6 +6,7 @@ Source code for OpenXava course in English
 - https://www.openxava.org/OpenXavaDoc/docs/getting-started_en.html
 - https://www.openxava.org/OpenXavaDoc/docs/basic-domain-model1_en.html
 - Annotation full docs: https://www.openxava.org/OpenXavaDoc/docs/model_en.html#Model-Properties-Stereotype
+- View : https://www.openxava.org/OpenXavaDoc/docs/view_en.html
 
 ##  Model
 
@@ -35,3 +36,7 @@ public type getPropertyName() { ... }                                      // 13
 public void setPropertyName(type newValue) { ... }                         // 13
  
 ```
+
+## View
+
+- https://www.openxava.org/OpenXavaDoc/docs/view_en.html
